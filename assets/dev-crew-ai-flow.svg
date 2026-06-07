@@ -1,0 +1,16 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="28" fill="#020617"/>
+  <path d="M0 72H1200M0 144H1200M0 216H1200M0 288H1200M120 0V360M240 0V360M360 0V360M480 0V360M600 0V360M720 0V360M840 0V360M960 0V360M1080 0V360" stroke="#1e293b"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+  <text x="54" y="58" fill="#38bdf8" font-family="Inter,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="3">HOW IT WORKS</text>
+  <text x="54" y="96" fill="#f8fafc" font-family="Inter,Segoe UI,sans-serif" font-size="34" font-weight="800">From GitHub issue to isolated agent lane to PR</text>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <g transform="translate(70 155)"><rect width="170" height="95" rx="18" fill="#082f49" stroke="#22d3ee"/><text x="26" y="38" fill="#e0f2fe" font-size="18" font-weight="700">1. Scout</text><text x="26" y="66" fill="#bae6fd" font-size="14">Issues + PRs</text></g>
+    <path d="M260 203H330" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(350 155)"><rect width="170" height="95" rx="18" fill="#064e3b" stroke="#34d399"/><text x="26" y="38" fill="#d1fae5" font-size="18" font-weight="700">2. Lane</text><text x="26" y="66" fill="#a7f3d0" font-size="14">Worktree + branch</text></g>
+    <path d="M540 203H610" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(630 155)"><rect width="170" height="95" rx="18" fill="#312e81" stroke="#a78bfa"/><text x="26" y="38" fill="#ede9fe" font-size="18" font-weight="700">3. Agent</text><text x="26" y="66" fill="#ddd6fe" font-size="14">Copilot/Claude/etc</text></g>
+    <path d="M820 203H890" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <g transform="translate(910 155)"><rect width="220" height="95" rx="18" fill="#451a03" stroke="#fbbf24"/><text x="26" y="38" fill="#fef3c7" font-size="18" font-weight="700">4. Ship</text><text x="26" y="66" fill="#fde68a" font-size="14">Diffs, review, PR</text></g>
+  </g>
+</svg>

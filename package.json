@@ -1,0 +1,69 @@
+{
+  "name": "dev-crew-ai",
+  "version": "0.1.0",
+  "description": "Dev Crew AI — Parallel Development Studio for multi-session AI coding agents across GitHub projects.",
+  "private": false,
+  "type": "module",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc --noEmit && electron-vite build",
+    "preview": "electron-vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "dist": "npm run build && electron-builder"
+  },
+  "keywords": [
+    "ai-agents",
+    "electron",
+    "github",
+    "git-worktree",
+    "parallel-development",
+    "developer-tools"
+  ],
+  "author": "Ragnar Pitla",
+  "license": "MIT",
+  "dependencies": {
+    "electron-updater": "^6.6.2",
+    "nanoid": "^5.1.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "xterm": "^5.3.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^5.0.0",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.5",
+    "vitest": "^4.0.15"
+  },
+  "build": {
+    "appId": "ai.devcrew.studio",
+    "productName": "Dev Crew AI",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.developer-tools"
+    }
+  }
+}
