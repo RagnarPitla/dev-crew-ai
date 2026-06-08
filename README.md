@@ -131,6 +131,13 @@ Dev Crew AI is local-first and visible-by-default:
 
 See [docs/roadmap.md](docs/roadmap.md).
 
+## Community
+
+- [Contributing guide](CONTRIBUTING.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [Security policy](SECURITY.md)
+- [Support](SUPPORT.md)
+
 ## License
 
 MIT
