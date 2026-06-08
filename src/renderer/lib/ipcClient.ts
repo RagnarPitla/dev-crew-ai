@@ -10,6 +10,7 @@ declare global {
 export const devCrewApi = {
   addProject: (rootPath: string) => window.devCrew.addProject(rootPath),
   scanProject: (rootPath: string) => window.devCrew.scanProject(rootPath),
+  detectProjectVision: (rootPath: string) => window.devCrew.detectProjectVision(rootPath),
   initGit: (rootPath: string) => window.devCrew.initGit(rootPath),
   createGitignore: (rootPath: string) => window.devCrew.createGitignore(rootPath),
   getGitIdentity: (rootPath: string) => window.devCrew.getGitIdentity(rootPath),

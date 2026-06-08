@@ -5,12 +5,14 @@ import { GhService } from './services/ghService';
 import { LaneService } from './services/laneService';
 import { MessageBusService } from './services/messageBusService';
 import { ProviderService } from './services/providerService';
+import { VisionService } from './services/visionService';
 import type { CreateLaneInput, CreatePullRequestInput, LaneMessage, Project } from '../shared/types';
 
 const projects = new Map<string, Project>();
 const gitService = new GitService();
 const ghService = new GhService();
 const providerService = new ProviderService();
+const visionService = new VisionService();
 const messageBusService = new MessageBusService();
 const laneService = new LaneService({ gitService, ghService, providerService, messageBusService, projects });
 
@@ -37,6 +39,7 @@ export function registerIpcHandlers(): void {
   });
 
   ipcMain.handle('projects:scan', async (_event, rootPath: string) => gitService.scanProject(rootPath));
+  ipcMain.handle('projects:vision', async (_event, rootPath: string) => visionService.detectProjectVision(rootPath));
   ipcMain.handle('projects:init-git', async (_event, rootPath: string) => gitService.initRepo(rootPath));
   ipcMain.handle('projects:create-gitignore', async (_event, rootPath: string) => gitService.createGitignoreIfMissing(rootPath));
   ipcMain.handle('projects:git-identity', async (_event, rootPath: string) => gitService.ensureGitIdentity(rootPath));
