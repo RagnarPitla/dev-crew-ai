@@ -1,5 +1,14 @@
 import { z } from 'zod';
 
+export const projectVisionSourceSchema = z.enum(['VISION.md', 'AGENTS.md', 'CLAUDE.md', 'DEV_CREW.md', 'README.md', 'missing']);
+export const projectVisionSchema = z.object({
+  found: z.boolean(),
+  source: projectVisionSourceSchema,
+  path: z.string().optional(),
+  content: z.string(),
+  detectedAt: z.string().min(1),
+});
+
 export const actionGateRoleSchema = z.enum(['pm_spec', 'dev', 'qa', 'pm_final']);
 export const actionGateStatusSchema = z.enum(['not_started', 'in_progress', 'blocked', 'changes_requested', 'approved']);
 export const actionVisibilitySchema = z.enum(['private', 'public_candidate', 'public']);

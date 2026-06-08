@@ -1,5 +1,15 @@
 export type ProjectMode = 'github' | 'local-git' | 'plain-folder';
 
+export type ProjectVisionSource = 'VISION.md' | 'AGENTS.md' | 'CLAUDE.md' | 'DEV_CREW.md' | 'README.md' | 'missing';
+
+export interface ProjectVision {
+  found: boolean;
+  source: ProjectVisionSource;
+  path?: string;
+  content: string;
+  detectedAt: string;
+}
+
 export type ActionGateRole = 'pm_spec' | 'dev' | 'qa' | 'pm_final';
 export type ActionGateStatus = 'not_started' | 'in_progress' | 'blocked' | 'changes_requested' | 'approved';
 export type ActionVisibility = 'private' | 'public_candidate' | 'public';

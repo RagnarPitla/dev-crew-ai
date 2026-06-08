@@ -5,6 +5,7 @@ import { CommandRunner } from './commandRunner';
 import type { GitService } from './gitService';
 import type { GhService } from './ghService';
 import { InstructionService } from './instructionService';
+import { VisionService } from './visionService';
 import type { MessageBusService } from './messageBusService';
 import type { ProviderService } from './providerService';
 import type { CreateLaneInput, CreatePullRequestInput, GhPullRequest, Lane, Project } from '../../shared/types';
@@ -21,6 +22,7 @@ export class LaneService {
   private readonly lanes = new Map<string, Lane>();
   private readonly processes = new Map<string, ChildProcess>();
   private readonly instructionService = new InstructionService();
+  private readonly visionService = new VisionService();
   private readonly runner = new CommandRunner();
 
   constructor(private readonly deps: LaneServiceDeps) {}
@@ -51,7 +53,8 @@ export class LaneService {
       createdAt: now,
       updatedAt: now,
     };
-    lane.instructionPath = await this.instructionService.writeLaneInstructions(lane, project);
+    const vision = await this.visionService.detectProjectVision(project.rootPath);
+    lane.instructionPath = await this.instructionService.writeLaneInstructions(lane, project, vision);
     this.lanes.set(lane.id, lane);
     this.deps.messageBusService.addMessage({
       projectId: project.id,

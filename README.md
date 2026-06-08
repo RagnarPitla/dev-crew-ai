@@ -93,6 +93,8 @@ Starter launch and messaging materials are in [docs/marketing](docs/marketing/):
 - [Landing page copy](docs/marketing/landing-page-copy.md)
 - [Social posts](docs/marketing/social-posts.md)
 - [Press kit](docs/marketing/press-kit.md)
+- [Project Vision](docs/product/project-vision.md)
+- [OBO — On Your Behalf](docs/product/obo.md)
 
 ## Status
 
@@ -103,6 +105,7 @@ Early open-source scaffold. The repo includes:
 - Git service;
 - GitHub CLI service;
 - local-first project scan foundation;
+- Project Vision detection for lane instructions;
 - provider adapter interface;
 - Claude Code, Copilot, Ollama, and custom-command provider presets;
 - lane orchestration service;

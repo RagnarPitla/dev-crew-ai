@@ -15,6 +15,7 @@
 
 ## v0.2 — Real lane execution
 
+- Add Project Vision detection and include it in lane instructions.
 - Add project from file picker.
 - Persist projects and lanes in SQLite.
 - Create lane from GitHub issue.
@@ -34,6 +35,7 @@
 ## v0.4 — Multi-session clarity
 
 - Cross-lane message forwarding.
+- OBO browser automation evidence for approved test lanes.
 - File conflict detection.
 - Lane dependency graph.
 - Review lane handoff.
