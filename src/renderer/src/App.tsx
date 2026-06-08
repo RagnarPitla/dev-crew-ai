@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
-import type { GhIssue, Lane, Project, ProviderConfig } from './shared/types';
+import type { GhIssue, Lane, PrivateActionItem, Project, ProviderConfig } from './shared/types';
 import { LaneBoard } from './components/LaneBoard';
 import { LaneDetail } from './components/LaneDetail';
 import { MessageBus } from './components/MessageBus';
 import { ProjectSidebar } from './components/ProjectSidebar';
 import { WelcomeScreen } from './components/onboarding/WelcomeScreen';
+import { ActionBoard } from './components/actions/ActionBoard';
 import { DEV_CREW_BRAND } from './shared/brand';
 
 const demoProviders: ProviderConfig[] = [
@@ -90,6 +91,57 @@ const demoIssues: GhIssue[] = [
   { number: 21, title: 'Add Ollama summarization adapter', state: 'OPEN', labels: ['local-ai'], url: '#' },
 ];
 
+const demoAction: PrivateActionItem = {
+  id: 'action-project-vision',
+  title: 'Project Vision Detection',
+  problem: 'Agents need a stable project constitution before lane work starts.',
+  visibility: 'public_candidate',
+  status: 'pm_final',
+  acceptanceCriteria: ['Detect VISION.md/AGENTS.md/CLAUDE.md/DEV_CREW.md/README.md', 'Include vision in lane instructions'],
+  nonGoals: ['Do not auto-generate project vision yet'],
+  targetFiles: ['src/main/services/visionService.ts', 'src/main/services/instructionService.ts'],
+  gates: {
+    pm_spec: {
+      role: 'pm_spec',
+      status: 'approved',
+      reviewer: 'Ragnar',
+      summary: 'Project Vision is the next product primitive.',
+      checklist: ['Scope is clear', 'OBO stays roadmap only'],
+      evidence: ['Private PM spec approved'],
+      reviewedAt: new Date().toISOString(),
+    },
+    dev: {
+      role: 'dev',
+      status: 'approved',
+      reviewer: 'Ruby Dev',
+      summary: 'Implemented with TDD and lane instruction integration.',
+      checklist: ['RED tests first', 'Minimal implementation'],
+      evidence: ['visionService.test.ts', 'instructionService.test.ts'],
+      reviewedAt: new Date().toISOString(),
+    },
+    qa: {
+      role: 'qa',
+      status: 'approved',
+      reviewer: 'Ruby QA',
+      summary: 'Tests and production build passed.',
+      checklist: ['npm test', 'npm run build'],
+      evidence: ['18 tests passed', 'Build passed'],
+      reviewedAt: new Date().toISOString(),
+    },
+    pm_final: {
+      role: 'pm_final',
+      status: 'not_started',
+      reviewer: '',
+      summary: '',
+      checklist: [],
+      evidence: [],
+    },
+  },
+  pushApproval: 'not_allowed',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+};
+
 export function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [selectedProject] = useState<Project>(demoProject);
@@ -115,6 +167,7 @@ export function App() {
           <button className="primary-button">Create lane</button>
         </header>
         <LaneBoard lanes={lanes} selectedLaneId={selectedLane?.id} onSelectLane={setSelectedLaneId} />
+        <ActionBoard action={demoAction} />
         <MessageBus projectId={selectedProject.id} lanes={lanes} />
       </section>
       <LaneDetail lane={selectedLane} provider={demoProviders.find((provider) => provider.id === selectedLane?.providerId)} />
