@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Dev Crew AI action gates flow</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+*{box-sizing:border-box}body{margin:0;background:var(--cp-bg);color:var(--cp-text);font-family:"Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif}main{max-width:1120px;margin:0 auto;padding:32px 18px 56px}.hero,.callout,.step{background:var(--cp-panel-strong);border:1px solid var(--cp-border);border-radius:16px;padding:24px;box-shadow:var(--cp-shadow)}.eyebrow{color:var(--cp-accent);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:800}h1{margin:8px 0 12px;font-size:clamp(2rem,6vw,4rem);line-height:1}p{color:var(--cp-text-muted);line-height:1.6}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.step span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:.625rem;background:var(--cp-accent);color:var(--cp-accent-fg);font-weight:800}.step h2{margin:16px 0 8px;font-size:1.2rem}.callout{margin-top:18px;background:var(--cp-accent-soft)}.pill{display:inline-block;border:1px solid var(--cp-border);background:var(--cp-surface-soft);border-radius:.625rem;padding:8px 10px;margin:6px 6px 0 0;font-family:Consolas,"Courier New",Courier,monospace}@media(max-width:860px){.grid{grid-template-columns:1fr}main{padding:18px 12px 40px}}
+</style></head><body><main><section class="hero"><div class="eyebrow">Action Gates</div><h1>PM Spec → Dev → QA → PM Final → Push.</h1><p>Action Gates make GitHub push status visible. Work cannot move to public shipping until evidence exists and PM Final approves it.</p><span class="pill">Dev Crew AI</span><span class="pill">RBuild.ai</span><span class="pill">No hidden push</span></section><section class="grid" aria-label="Flow steps"><article class="step"><span>1</span><h2>PM Spec</h2><p>Define problem, scope, acceptance criteria, target files, and non-goals.</p></article><article class="step"><span>2</span><h2>Dev</h2><p>Use TDD, implement the smallest working slice, and capture build output.</p></article><article class="step"><span>3</span><h2>QA</h2><p>Review evidence, run tests, check secrets/private files, and verify claims.</p></article><article class="step"><span>4</span><h2>PM Final</h2><p>Approve or block GitHub push with visible status.</p></article></section><section class="callout"><strong>Outcome: GitHub push is a visible product state, not a hidden developer habit.</strong></section></main></body></html>

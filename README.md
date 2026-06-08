@@ -12,6 +12,31 @@ Bring your own agent: GitHub Copilot, Claude Code, Codex, OpenCode, Aider, Ollam
 
 ![Dev Crew AI overview](assets/dev-crew-ai-overview.svg)
 
+## Visual flows
+
+Most users understand Dev Crew AI faster through visuals, so the repository includes GitHub-visible SVG diagrams and mobile-friendly HTML flow artifacts. GitHub mobile may show `.html` files as source, so use the rendered preview links for phone viewing.
+
+### Onboarding: bring any project safely
+
+![Dev Crew AI onboarding flow](assets/dev-crew-ai-onboarding-flow.svg)
+
+- Repo HTML: [artifacts/dev-crew-ai-onboarding-flow.html](artifacts/dev-crew-ai-onboarding-flow.html)
+- Rendered mobile preview: [Open onboarding flow](https://raw.githack.com/RagnarPitla/dev-crew-ai/main/artifacts/dev-crew-ai-onboarding-flow.html)
+
+### Action Gates: push only after approval
+
+![Dev Crew AI action gates flow](assets/dev-crew-ai-action-gates-flow.svg)
+
+- Repo HTML: [artifacts/dev-crew-ai-action-gates-flow.html](artifacts/dev-crew-ai-action-gates-flow.html)
+- Rendered mobile preview: [Open action gates flow](https://raw.githack.com/RagnarPitla/dev-crew-ai/main/artifacts/dev-crew-ai-action-gates-flow.html)
+
+### Terminal Pane Grid: visual tmux for AI agents
+
+![Dev Crew AI terminal pane grid](assets/dev-crew-ai-terminal-pane-grid.svg)
+
+- Repo HTML: [artifacts/dev-crew-ai-terminal-pane-grid.html](artifacts/dev-crew-ai-terminal-pane-grid.html)
+- Rendered mobile preview: [Open terminal pane grid](https://raw.githack.com/RagnarPitla/dev-crew-ai/main/artifacts/dev-crew-ai-terminal-pane-grid.html)
+
 ## We are building this now
 
 Dev Crew AI is early and being built in public by **Ragnar Pitla and RBuild.ai**. The goal is to make a local-first product where developers can open multiple AI agents in their own terminal boxes, keep each task isolated, and still coordinate the work clearly.

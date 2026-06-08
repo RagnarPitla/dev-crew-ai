@@ -1,0 +1,27 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dev Crew AI action gates flow</title>
+  <desc id="desc">PM Spec, Dev, QA, and PM Final gates must pass before GitHub push is allowed.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker></defs>
+  <rect width="1200" height="520" rx="36" fill="#0f172a"/>
+  <text x="56" y="70" fill="#e5eefb" font-family="Segoe UI, Arial" font-size="34" font-weight="800">Action Gates</text>
+  <text x="56" y="106" fill="#94a3b8" font-family="Segoe UI, Arial" font-size="18">No GitHub push until PM Final approval. Every step leaves evidence.</text>
+  <g font-family="Segoe UI, Arial">
+    <rect x="60" y="190" width="220" height="145" rx="22" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="92" y="245" fill="#e0f2fe" font-size="25" font-weight="800">PM Spec</text>
+    <text x="92" y="282" fill="#94a3b8" font-size="16">Problem, scope, criteria</text>
+    <path d="M290 262 L374 262" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="385" y="190" width="180" height="145" rx="22" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <text x="432" y="245" fill="#dcfce7" font-size="25" font-weight="800">Dev</text>
+    <text x="416" y="282" fill="#94a3b8" font-size="16">TDD + build</text>
+    <path d="M575 262 L659 262" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="670" y="190" width="180" height="145" rx="22" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="724" y="245" fill="#fef3c7" font-size="25" font-weight="800">QA</text>
+    <text x="704" y="282" fill="#94a3b8" font-size="16">Evidence + safety</text>
+    <path d="M860 262 L944 262" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrow)"/>
+    <rect x="955" y="190" width="190" height="145" rx="22" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="990" y="245" fill="#ede9fe" font-size="25" font-weight="800">PM Final</text>
+    <text x="988" y="282" fill="#94a3b8" font-size="16">Approve push</text>
+    <rect x="350" y="392" width="500" height="70" rx="18" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+    <text x="438" y="436" fill="#fef3c7" font-size="24" font-weight="800">GitHub push stays blocked until all gates pass</text>
+  </g>
+</svg>

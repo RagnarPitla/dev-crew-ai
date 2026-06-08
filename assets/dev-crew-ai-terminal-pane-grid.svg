@@ -1,0 +1,37 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dev Crew AI terminal pane grid</title>
+  <desc id="desc">A visual tmux for AI agents with project sidebar, terminal lane panes, action gates, and message bus.</desc>
+  <rect width="1200" height="520" rx="36" fill="#020617"/>
+  <text x="54" y="65" fill="#e5eefb" font-family="Segoe UI, Arial" font-size="34" font-weight="800">Terminal Pane Grid</text>
+  <text x="54" y="100" fill="#94a3b8" font-family="Segoe UI, Arial" font-size="18">Visual tmux for AI agents: add, move, focus, review, and ship lanes.</text>
+  <g font-family="Segoe UI, Arial">
+    <rect x="54" y="135" width="235" height="330" rx="20" fill="#0f172a" stroke="#334155"/>
+    <text x="82" y="180" fill="#e0f2fe" font-size="22" font-weight="800">Projects</text>
+    <rect x="82" y="210" width="175" height="42" rx="12" fill="#1e293b"/>
+    <text x="100" y="237" fill="#cbd5e1" font-size="15">dev-crew-ai</text>
+    <rect x="82" y="265" width="175" height="42" rx="12" fill="#1e293b"/>
+    <text x="100" y="292" fill="#cbd5e1" font-size="15">ios-yantra</text>
+    <rect x="325" y="135" width="525" height="330" rx="20" fill="#0f172a" stroke="#334155"/>
+    <text x="355" y="180" fill="#e0f2fe" font-size="22" font-weight="800">Agent lanes</text>
+    <rect x="355" y="208" width="220" height="98" rx="14" fill="#111827" stroke="#22c55e"/>
+    <text x="378" y="242" fill="#bbf7d0" font-size="17" font-weight="800">Lane A · Dev</text>
+    <text x="378" y="270" fill="#94a3b8" font-size="14">npm test ✓</text>
+    <rect x="600" y="208" width="220" height="98" rx="14" fill="#111827" stroke="#f59e0b"/>
+    <text x="623" y="242" fill="#fef3c7" font-size="17" font-weight="800">Lane B · QA</text>
+    <text x="623" y="270" fill="#94a3b8" font-size="14">reviewing diff…</text>
+    <rect x="355" y="330" width="220" height="98" rx="14" fill="#111827" stroke="#38bdf8"/>
+    <text x="378" y="364" fill="#bae6fd" font-size="17" font-weight="800">Lane C · Docs</text>
+    <text x="378" y="392" fill="#94a3b8" font-size="14">README visuals</text>
+    <rect x="600" y="330" width="220" height="98" rx="14" fill="#111827" stroke="#a78bfa"/>
+    <text x="623" y="364" fill="#ede9fe" font-size="17" font-weight="800">Lane D · Review</text>
+    <text x="623" y="392" fill="#94a3b8" font-size="14">fresh context</text>
+    <rect x="885" y="135" width="260" height="330" rx="20" fill="#0f172a" stroke="#334155"/>
+    <text x="915" y="180" fill="#e0f2fe" font-size="22" font-weight="800">Controls</text>
+    <text x="915" y="220" fill="#94a3b8" font-size="15">+ Add pane</text>
+    <text x="915" y="255" fill="#94a3b8" font-size="15">↔ Move pane</text>
+    <text x="915" y="290" fill="#94a3b8" font-size="15">✓ Action Gates</text>
+    <text x="915" y="325" fill="#94a3b8" font-size="15">💬 Message bus</text>
+    <rect x="915" y="365" width="190" height="54" rx="14" fill="#14532d" stroke="#22c55e"/>
+    <text x="948" y="399" fill="#dcfce7" font-size="17" font-weight="800">Evidence ready</text>
+  </g>
+</svg>
