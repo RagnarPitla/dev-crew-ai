@@ -1,7 +1,7 @@
 {
   "name": "dev-crew-ai",
   "version": "0.1.0",
-  "description": "Dev Crew AI — Parallel Development Studio for multi-session AI coding agents across GitHub projects.",
+  "description": "Dev Crew AI by Ragnar Pitla and RBuild.ai — Parallel Development Studio for local-first multi-session AI coding agents.",
   "private": false,
   "type": "module",
   "main": "dist/main/index.js",
@@ -21,10 +21,21 @@
     "github",
     "git-worktree",
     "parallel-development",
+    "local-ai",
+    "desktop-app",
+    "rbuild-ai",
     "developer-tools"
   ],
-  "author": "Ragnar Pitla",
+  "author": "Ragnar Pitla and RBuild.ai",
   "license": "MIT",
+  "homepage": "https://github.com/RagnarPitla/dev-crew-ai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RagnarPitla/dev-crew-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RagnarPitla/dev-crew-ai/issues"
+  },
   "dependencies": {
     "electron-updater": "^6.6.2",
     "nanoid": "^5.1.6",

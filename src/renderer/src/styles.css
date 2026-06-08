@@ -31,6 +31,7 @@ button { font: inherit; }
 .logo { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, #38bdf8, #8b5cf6); font-weight: 800; }
 .brand span, small, .hero p, .lane-card p, .detail-header p { color: #94a3b8; }
 .brand span { display: block; font-size: 12px; }
+.brand-byline { color: #bae6fd !important; font-weight: 700; }
 
 .panel, .lane-card, .message-bus, .hero {
   border: 1px solid rgba(148, 163, 184, 0.15);

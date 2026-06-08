@@ -1,9 +1,17 @@
 import { describe, expect, it } from 'vitest';
+import { DEV_CREW_BRAND } from '../../src/shared/brand';
 import { parseGitHubRemote } from '../../src/main/services/gitService';
 import { slugify } from '../../src/main/services/laneService';
 import { laneSchema, projectScanResultSchema, projectSchema } from '../../src/shared/schemas';
 
 describe('Dev Crew AI domain', () => {
+  it('keeps the public brand attribution consistent', () => {
+    expect(DEV_CREW_BRAND.productName).toBe('Dev Crew AI');
+    expect(DEV_CREW_BRAND.founderName).toBe('Ragnar Pitla');
+    expect(DEV_CREW_BRAND.companyName).toBe('RBuild.ai');
+    expect(DEV_CREW_BRAND.byline).toBe('by Ragnar Pitla and RBuild.ai');
+  });
+
   it('parses https GitHub remotes', () => {
     expect(parseGitHubRemote('https://github.com/RagnarPitla/dev-crew-ai.git')).toEqual({
       owner: 'RagnarPitla',

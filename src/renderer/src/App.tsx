@@ -5,6 +5,7 @@ import { LaneDetail } from './components/LaneDetail';
 import { MessageBus } from './components/MessageBus';
 import { ProjectSidebar } from './components/ProjectSidebar';
 import { WelcomeScreen } from './components/onboarding/WelcomeScreen';
+import { DEV_CREW_BRAND } from './shared/brand';
 
 const demoProviders: ProviderConfig[] = [
   {
@@ -106,9 +107,10 @@ export function App() {
       <section className="workspace">
         <header className="hero">
           <div>
-            <p className="eyebrow">Dev Crew AI</p>
+            <p className="eyebrow">{DEV_CREW_BRAND.productName}</p>
             <h1>Parallel Development Studio</h1>
             <p>Run multiple AI coding sessions safely across projects, GitHub issues, features, PRs, and reviews.</p>
+            <p className="brand-byline">{DEV_CREW_BRAND.byline}</p>
           </div>
           <button className="primary-button">Create lane</button>
         </header>

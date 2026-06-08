@@ -2,6 +2,8 @@
 
 **Parallel Development Studio for AI coding agents.**
 
+**By Ragnar Pitla and RBuild.ai.**
+
 Dev Crew AI is a local-first desktop app for Windows and macOS that lets you run multiple AI coding sessions safely across GitHub projects, local Git repos, and plain folders.
 
 Bring your own agent: GitHub Copilot, Claude Code, Codex, OpenCode, Aider, Ollama, Hermes, or any custom command.
@@ -12,7 +14,7 @@ Bring your own agent: GitHub Copilot, Claude Code, Codex, OpenCode, Aider, Ollam
 
 ## We are building this now
 
-Dev Crew AI is early and being built in public. The goal is to make a local-first product where developers can open multiple AI agents in their own terminal boxes, keep each task isolated, and still coordinate the work clearly.
+Dev Crew AI is early and being built in public by **Ragnar Pitla and RBuild.ai**. The goal is to make a local-first product where developers can open multiple AI agents in their own terminal boxes, keep each task isolated, and still coordinate the work clearly.
 
 The latest UX direction is a **multi-terminal agent workspace**:
 
@@ -73,11 +75,24 @@ GitHub is optional until the user wants issues and PRs.
 
 **Dev Crew AI** is the brand.
 
+**RBuild.ai** is the company behind the project.
+
+**Ragnar Pitla** is the creator/founder.
+
 **Parallel Development Studio** is the descriptive phrase.
 
 Tagline:
 
 > Scout the work. Spin up lanes. Review diffs. Ship PRs.
+
+## Marketing materials
+
+Starter launch and messaging materials are in [docs/marketing](docs/marketing/):
+
+- [Launch brief](docs/marketing/launch-brief.md)
+- [Landing page copy](docs/marketing/landing-page-copy.md)
+- [Social posts](docs/marketing/social-posts.md)
+- [Press kit](docs/marketing/press-kit.md)
 
 ## Status
 
@@ -93,7 +108,8 @@ Early open-source scaffold. The repo includes:
 - lane orchestration service;
 - demo UI for lane board, lane detail, onboarding, and message bus;
 - interactive terminal workspace mockup;
-- docs and templates.
+- docs and templates;
+- starter marketing materials.
 
 ## Quickstart
 
@@ -133,4 +149,4 @@ See [docs/roadmap.md](docs/roadmap.md).
 
 ## License
 
-MIT
+MIT © 2026 Ragnar Pitla and RBuild.ai

@@ -1,4 +1,5 @@
 import type { GhIssue, Project, ProviderConfig } from '../shared/types';
+import { DEV_CREW_BRAND } from '../shared/brand';
 
 interface Props {
   project: Project;
@@ -12,7 +13,8 @@ export function ProjectSidebar({ project, issues, providers }: Props) {
       <div className="brand">
         <div className="logo">DC</div>
         <div>
-          <strong>Dev Crew AI</strong>
+          <strong>{DEV_CREW_BRAND.productName}</strong>
+          <span>{DEV_CREW_BRAND.companyName}</span>
           <span>Local-first agent lanes</span>
         </div>
       </div>
