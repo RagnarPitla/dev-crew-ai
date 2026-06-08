@@ -109,7 +109,9 @@ Early open-source scaffold. The repo includes:
 - demo UI for lane board, lane detail, onboarding, and message bus;
 - interactive terminal workspace mockup;
 - docs and templates;
-- starter marketing materials.
+- starter marketing materials;
+- GitHub CLI/Copilot workflow guide;
+- Action Gates model/service foundation for PM → Dev → QA → PM Final approval before GitHub push.
 
 ## Quickstart
 

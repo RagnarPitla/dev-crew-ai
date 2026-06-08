@@ -2,6 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { DEV_CREW_BRAND } from '../../src/shared/brand';
 import { parseGitHubRemote } from '../../src/main/services/gitService';
 import { slugify } from '../../src/main/services/laneService';
+import {
+  buildCopilotSuggestCommand,
+  buildGitHubAuthLoginCommand,
+  buildOpenUrlCommand,
+  getSupportedPlatform,
+} from '../../src/main/services/platformCommands';
 import { laneSchema, projectScanResultSchema, projectSchema } from '../../src/shared/schemas';
 
 describe('Dev Crew AI domain', () => {
@@ -10,6 +16,44 @@ describe('Dev Crew AI domain', () => {
     expect(DEV_CREW_BRAND.founderName).toBe('Ragnar Pitla');
     expect(DEV_CREW_BRAND.companyName).toBe('RBuild.ai');
     expect(DEV_CREW_BRAND.byline).toBe('by Ragnar Pitla and RBuild.ai');
+  });
+
+  it('builds GitHub CLI web login commands for every desktop OS', () => {
+    expect(buildGitHubAuthLoginCommand('win32')).toEqual({
+      platform: 'win32',
+      command: 'gh',
+      args: ['auth', 'login', '--web', '--hostname', 'github.com', '--git-protocol', 'https'],
+      description: 'Login to GitHub with gh CLI using the browser on Windows.',
+    });
+    expect(buildGitHubAuthLoginCommand('darwin').description).toContain('macOS');
+    expect(buildGitHubAuthLoginCommand('linux').description).toContain('Linux');
+  });
+
+  it('builds OS-specific open URL commands', () => {
+    expect(buildOpenUrlCommand('https://github.com/login', 'win32')).toEqual({
+      platform: 'win32',
+      command: 'cmd.exe',
+      args: ['/d', '/s', '/c', 'start', '', 'https://github.com/login'],
+      description: 'Open https://github.com/login in the default browser on Windows.',
+    });
+    expect(buildOpenUrlCommand('https://github.com/login', 'darwin')).toMatchObject({ command: 'open' });
+    expect(buildOpenUrlCommand('https://github.com/login', 'linux')).toMatchObject({ command: 'xdg-open' });
+  });
+
+  it('normalizes supported desktop platforms', () => {
+    expect(getSupportedPlatform('win32')).toBe('win32');
+    expect(getSupportedPlatform('darwin')).toBe('darwin');
+    expect(getSupportedPlatform('linux')).toBe('linux');
+    expect(getSupportedPlatform('freebsd')).toBe('linux');
+  });
+
+  it('builds a GitHub Copilot CLI suggestion command', () => {
+    expect(buildCopilotSuggestCommand('write a git status command', 'linux')).toEqual({
+      platform: 'linux',
+      command: 'gh',
+      args: ['copilot', 'suggest', '-t', 'shell', 'write a git status command'],
+      description: 'Ask GitHub Copilot CLI for a shell suggestion on Linux.',
+    });
   });
 
   it('parses https GitHub remotes', () => {

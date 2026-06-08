@@ -1,5 +1,41 @@
 import { z } from 'zod';
 
+export const actionGateRoleSchema = z.enum(['pm_spec', 'dev', 'qa', 'pm_final']);
+export const actionGateStatusSchema = z.enum(['not_started', 'in_progress', 'blocked', 'changes_requested', 'approved']);
+export const actionVisibilitySchema = z.enum(['private', 'public_candidate', 'public']);
+export const actionItemStatusSchema = z.enum(['idea', 'pm_spec', 'dev', 'qa', 'pm_final', 'ready_to_push', 'pushed', 'cancelled']);
+export const pushApprovalStatusSchema = z.enum(['not_allowed', 'approved']);
+
+export const actionGateReviewSchema = z.object({
+  role: actionGateRoleSchema,
+  status: actionGateStatusSchema,
+  reviewer: z.string(),
+  summary: z.string(),
+  checklist: z.array(z.string()),
+  evidence: z.array(z.string()),
+  reviewedAt: z.string().optional(),
+});
+
+export const privateActionItemSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  problem: z.string().min(1),
+  visibility: actionVisibilitySchema,
+  status: actionItemStatusSchema,
+  acceptanceCriteria: z.array(z.string()),
+  nonGoals: z.array(z.string()),
+  targetFiles: z.array(z.string()),
+  gates: z.object({
+    pm_spec: actionGateReviewSchema,
+    dev: actionGateReviewSchema,
+    qa: actionGateReviewSchema,
+    pm_final: actionGateReviewSchema,
+  }),
+  pushApproval: pushApprovalStatusSchema,
+  createdAt: z.string().min(1),
+  updatedAt: z.string().min(1),
+});
+
 export const projectModeSchema = z.enum(['github', 'local-git', 'plain-folder']);
 export const projectRecommendedActionSchema = z.enum(['open-github', 'open-local-git', 'init-git', 'read-only']);
 export const laneTypeSchema = z.enum(['feature', 'bugfix', 'review', 'docs', 'release', 'spike']);

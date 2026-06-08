@@ -20,6 +20,7 @@
 - Create lane from GitHub issue.
 - Stream live process output into terminal pane.
 - Stop/restart lane process.
+- Add Action Gates for PM → Dev → QA → PM Final review before product-controlled GitHub push.
 
 ## v0.3 — PR workflow
 

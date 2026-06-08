@@ -1,5 +1,36 @@
 export type ProjectMode = 'github' | 'local-git' | 'plain-folder';
 
+export type ActionGateRole = 'pm_spec' | 'dev' | 'qa' | 'pm_final';
+export type ActionGateStatus = 'not_started' | 'in_progress' | 'blocked' | 'changes_requested' | 'approved';
+export type ActionVisibility = 'private' | 'public_candidate' | 'public';
+export type ActionItemStatus = 'idea' | 'pm_spec' | 'dev' | 'qa' | 'pm_final' | 'ready_to_push' | 'pushed' | 'cancelled';
+export type PushApprovalStatus = 'not_allowed' | 'approved';
+
+export interface ActionGateReview {
+  role: ActionGateRole;
+  status: ActionGateStatus;
+  reviewer: string;
+  summary: string;
+  checklist: string[];
+  evidence: string[];
+  reviewedAt?: string;
+}
+
+export interface PrivateActionItem {
+  id: string;
+  title: string;
+  problem: string;
+  visibility: ActionVisibility;
+  status: ActionItemStatus;
+  acceptanceCriteria: string[];
+  nonGoals: string[];
+  targetFiles: string[];
+  gates: Record<ActionGateRole, ActionGateReview>;
+  pushApproval: PushApprovalStatus;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export type ProjectRecommendedAction = 'open-github' | 'open-local-git' | 'init-git' | 'read-only';
 
 export type LaneType = 'feature' | 'bugfix' | 'review' | 'docs' | 'release' | 'spike';
