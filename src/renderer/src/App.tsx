@@ -4,6 +4,7 @@ import { LaneBoard } from './components/LaneBoard';
 import { LaneDetail } from './components/LaneDetail';
 import { MessageBus } from './components/MessageBus';
 import { ProjectSidebar } from './components/ProjectSidebar';
+import { WelcomeScreen } from './components/onboarding/WelcomeScreen';
 
 const demoProviders: ProviderConfig[] = [
   {
@@ -39,6 +40,9 @@ const demoProject: Project = {
   id: 'demo',
   name: 'Dev Crew AI Demo',
   rootPath: '~/projects/demo',
+  mode: 'github',
+  gitInitialized: true,
+  githubConnected: true,
   githubOwner: 'RagnarPitla',
   githubRepo: 'dev-crew-ai',
   defaultBranch: 'main',
@@ -86,12 +90,17 @@ const demoIssues: GhIssue[] = [
 ];
 
 export function App() {
+  const [showWelcome, setShowWelcome] = useState(true);
   const [selectedProject] = useState<Project>(demoProject);
   const [lanes] = useState<Lane[]>(demoLanes);
   const [selectedLaneId, setSelectedLaneId] = useState(lanes[0]?.id);
   const selectedLane = useMemo(() => lanes.find((lane) => lane.id === selectedLaneId) ?? lanes[0], [lanes, selectedLaneId]);
 
-  return (
+  return showWelcome ? (
+    <main className="welcome-shell">
+      <WelcomeScreen onSelectDemo={() => setShowWelcome(false)} />
+    </main>
+  ) : (
     <main className="app-shell">
       <ProjectSidebar project={selectedProject} issues={demoIssues} providers={demoProviders} />
       <section className="workspace">

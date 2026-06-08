@@ -11,6 +11,6 @@ export interface AgentProvider {
 
 export function renderTemplate(template: string[], values: Record<string, string>): string[] {
   return template.map((part) =>
-    Object.entries(values).reduce((acc, [key, value]) => acc.replaceAll(`{${key}}`, value), part),
+    Object.entries(values).reduce((acc, [key, value]) => acc.split(`{${key}}`).join(value), part),
   );
 }

@@ -3,6 +3,11 @@ import type { CreateLaneInput, CreatePullRequestInput, LaneMessage } from '../sh
 
 const api = {
   addProject: (rootPath: string) => ipcRenderer.invoke('projects:add', rootPath),
+  scanProject: (rootPath: string) => ipcRenderer.invoke('projects:scan', rootPath),
+  initGit: (rootPath: string) => ipcRenderer.invoke('projects:init-git', rootPath),
+  createGitignore: (rootPath: string) => ipcRenderer.invoke('projects:create-gitignore', rootPath),
+  getGitIdentity: (rootPath: string) => ipcRenderer.invoke('projects:git-identity', rootPath),
+  createBaselineCommit: (rootPath: string, message?: string) => ipcRenderer.invoke('projects:create-baseline', rootPath, message),
   listProjects: () => ipcRenderer.invoke('projects:list'),
   listProviders: () => ipcRenderer.invoke('providers:list'),
   checkGhAuth: () => ipcRenderer.invoke('github:auth'),

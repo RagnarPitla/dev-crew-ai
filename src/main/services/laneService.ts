@@ -32,7 +32,7 @@ export class LaneService {
   async createLane(input: CreateLaneInput): Promise<Lane> {
     const project = this.requireProject(input.projectId);
     const now = new Date().toISOString();
-    const baseBranch = input.baseBranch ?? project.defaultBranch;
+    const baseBranch = input.baseBranch ?? project.defaultBranch ?? 'main';
     const branchName = input.branchName ?? `${input.type}/${slugify(input.title)}`;
     const worktreePath = join(project.rootPath, '..', 'dev-crew-worktrees', slugify(input.title));
     await this.deps.gitService.createWorktree(project.rootPath, worktreePath, branchName, baseBranch);

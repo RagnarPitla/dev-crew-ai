@@ -1,3 +1,7 @@
+export type ProjectMode = 'github' | 'local-git' | 'plain-folder';
+
+export type ProjectRecommendedAction = 'open-github' | 'open-local-git' | 'init-git' | 'read-only';
+
 export type LaneType = 'feature' | 'bugfix' | 'review' | 'docs' | 'release' | 'spike';
 
 export type LaneStatus =
@@ -24,12 +28,39 @@ export interface Project {
   id: string;
   name: string;
   rootPath: string;
+  mode: ProjectMode;
+  gitInitialized: boolean;
+  githubConnected: boolean;
   remoteUrl?: string;
   githubOwner?: string;
   githubRepo?: string;
-  defaultBranch: string;
+  defaultBranch?: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface ProjectScanResult {
+  rootPath: string;
+  exists: boolean;
+  isGitRepo: boolean;
+  hasCommits: boolean;
+  hasGitHubRemote: boolean;
+  remoteUrl?: string;
+  githubOwner?: string;
+  githubRepo?: string;
+  currentBranch?: string;
+  defaultBranch?: string;
+  dirtyFiles: string[];
+  detectedStack: string[];
+  recommendedAction: ProjectRecommendedAction;
+  mode: ProjectMode;
+}
+
+export interface GitIdentityStatus {
+  hasName: boolean;
+  hasEmail: boolean;
+  name?: string;
+  email?: string;
 }
 
 export interface Lane {

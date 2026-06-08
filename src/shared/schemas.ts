@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export const projectModeSchema = z.enum(['github', 'local-git', 'plain-folder']);
+export const projectRecommendedActionSchema = z.enum(['open-github', 'open-local-git', 'init-git', 'read-only']);
 export const laneTypeSchema = z.enum(['feature', 'bugfix', 'review', 'docs', 'release', 'spike']);
 export const laneStatusSchema = z.enum([
   'draft',
@@ -26,12 +28,32 @@ export const projectSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   rootPath: z.string().min(1),
+  mode: projectModeSchema,
+  gitInitialized: z.boolean(),
+  githubConnected: z.boolean(),
   remoteUrl: z.string().optional(),
   githubOwner: z.string().optional(),
   githubRepo: z.string().optional(),
-  defaultBranch: z.string().min(1),
+  defaultBranch: z.string().optional(),
   createdAt: z.string().min(1),
   updatedAt: z.string().min(1),
+});
+
+export const projectScanResultSchema = z.object({
+  rootPath: z.string().min(1),
+  exists: z.boolean(),
+  isGitRepo: z.boolean(),
+  hasCommits: z.boolean(),
+  hasGitHubRemote: z.boolean(),
+  remoteUrl: z.string().optional(),
+  githubOwner: z.string().optional(),
+  githubRepo: z.string().optional(),
+  currentBranch: z.string().optional(),
+  defaultBranch: z.string().optional(),
+  dirtyFiles: z.array(z.string()),
+  detectedStack: z.array(z.string()),
+  recommendedAction: projectRecommendedActionSchema,
+  mode: projectModeSchema,
 });
 
 export const laneSchema = z.object({

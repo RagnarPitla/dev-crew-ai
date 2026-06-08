@@ -9,6 +9,11 @@ declare global {
 
 export const devCrewApi = {
   addProject: (rootPath: string) => window.devCrew.addProject(rootPath),
+  scanProject: (rootPath: string) => window.devCrew.scanProject(rootPath),
+  initGit: (rootPath: string) => window.devCrew.initGit(rootPath),
+  createGitignore: (rootPath: string) => window.devCrew.createGitignore(rootPath),
+  getGitIdentity: (rootPath: string) => window.devCrew.getGitIdentity(rootPath),
+  createBaselineCommit: (rootPath: string, message?: string) => window.devCrew.createBaselineCommit(rootPath, message),
   listProjects: () => window.devCrew.listProjects(),
   listProviders: () => window.devCrew.listProviders(),
   checkGhAuth: () => window.devCrew.checkGhAuth(),

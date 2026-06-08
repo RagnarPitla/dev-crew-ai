@@ -16,16 +16,19 @@ const laneService = new LaneService({ gitService, ghService, providerService, me
 
 export function registerIpcHandlers(): void {
   ipcMain.handle('projects:add', async (_event, rootPath: string) => {
-    const repoInfo = await gitService.getRepoInfo(rootPath);
+    const scan = await gitService.scanProject(rootPath);
     const now = new Date().toISOString();
     const project: Project = {
       id: nanoid(),
-      name: repoInfo.githubRepo ?? rootPath.split(/[\\/]/).pop() ?? 'Project',
-      rootPath: repoInfo.rootPath,
-      remoteUrl: repoInfo.remoteUrl,
-      githubOwner: repoInfo.githubOwner,
-      githubRepo: repoInfo.githubRepo,
-      defaultBranch: repoInfo.defaultBranch,
+      name: scan.githubRepo ?? scan.rootPath.split(/[\\/]/).pop() ?? 'Project',
+      rootPath: scan.rootPath,
+      mode: scan.mode,
+      gitInitialized: scan.isGitRepo,
+      githubConnected: scan.hasGitHubRemote,
+      remoteUrl: scan.remoteUrl,
+      githubOwner: scan.githubOwner,
+      githubRepo: scan.githubRepo,
+      defaultBranch: scan.defaultBranch ?? 'main',
       createdAt: now,
       updatedAt: now,
     };
@@ -33,6 +36,13 @@ export function registerIpcHandlers(): void {
     return project;
   });
 
+  ipcMain.handle('projects:scan', async (_event, rootPath: string) => gitService.scanProject(rootPath));
+  ipcMain.handle('projects:init-git', async (_event, rootPath: string) => gitService.initRepo(rootPath));
+  ipcMain.handle('projects:create-gitignore', async (_event, rootPath: string) => gitService.createGitignoreIfMissing(rootPath));
+  ipcMain.handle('projects:git-identity', async (_event, rootPath: string) => gitService.ensureGitIdentity(rootPath));
+  ipcMain.handle('projects:create-baseline', async (_event, rootPath: string, message?: string) =>
+    gitService.createBaselineCommit(rootPath, message),
+  );
   ipcMain.handle('projects:list', async () => Array.from(projects.values()));
   ipcMain.handle('providers:list', async () => providerService.listProviders());
   ipcMain.handle('github:auth', async () => ghService.checkGhAuth());
