@@ -1,4 +1,4 @@
-import type { CreateLaneInput, CreatePullRequestInput, LaneMessage } from '../../shared/types';
+import type { CreateLaneInput, CreatePullRequestInput, LaneMessage, RunCommandInput } from '../../shared/types';
 import type { DevCrewApi } from '../../preload';
 
 declare global {
@@ -28,4 +28,5 @@ export const devCrewApi = {
   createPullRequest: (input: CreatePullRequestInput) => window.devCrew.createPullRequest(input),
   listMessages: (projectId: string) => window.devCrew.listMessages(projectId),
   addMessage: (message: Omit<LaneMessage, 'id' | 'createdAt'>) => window.devCrew.addMessage(message),
+  runCommand: (input: RunCommandInput) => window.devCrew.runCommand(input),
 };

@@ -150,6 +150,34 @@ npm install
 npm run dev
 ```
 
+## Run the Windows/macOS desktop smoke test
+
+The repo includes an Electron smoke test that launches the built desktop app, opens the demo workspace, verifies the real Terminal Pane Grid appears, runs a safe command, and saves local screenshots under `scripts/dev-crew-*.png`.
+
+```bash
+npm run smoke:electron
+```
+
+Example smoke-test flow:
+
+1. Launch Dev Crew AI.
+2. Click **Skip to demo workspace**.
+3. Confirm the **Terminal Pane Grid** is visible.
+4. Run the PM Spec lane command.
+5. Confirm the pane captures command output and evidence copy.
+
+To create a local installer/package:
+
+```bash
+npm run dist
+```
+
+After `npm run dist` on Windows, verify the packaged app launches:
+
+```bash
+npm run smoke:packaged
+```
+
 ## Requirements
 
 - Node.js 20+

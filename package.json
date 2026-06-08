@@ -4,7 +4,7 @@
   "description": "Dev Crew AI by Ragnar Pitla and RBuild.ai — Parallel Development Studio for local-first multi-session AI coding agents.",
   "private": false,
   "type": "module",
-  "main": "dist/main/index.js",
+  "main": "out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "tsc --noEmit && electron-vite build",
@@ -15,6 +15,8 @@
     "typecheck": "tsc --noEmit",
     "obo:install-browsers": "playwright install",
     "obo:install-deps": "playwright install --with-deps",
+    "smoke:electron": "npm run build && node scripts/electron-smoke.cjs",
+    "smoke:packaged": "node scripts/electron-packaged-smoke.cjs",
     "dist": "npm run build && electron-builder"
   },
   "keywords": [
@@ -69,7 +71,7 @@
       "output": "release"
     },
     "files": [
-      "dist/**/*",
+      "out/**/*",
       "package.json"
     ],
     "win": {

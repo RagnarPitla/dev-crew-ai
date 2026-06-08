@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import type { CreateLaneInput, CreatePullRequestInput, LaneMessage } from '../shared/types';
+import type { CreateLaneInput, CreatePullRequestInput, LaneMessage, RunCommandInput } from '../shared/types';
 
 const api = {
   addProject: (rootPath: string) => ipcRenderer.invoke('projects:add', rootPath),
@@ -22,6 +22,7 @@ const api = {
   createPullRequest: (input: CreatePullRequestInput) => ipcRenderer.invoke('lanes:create-pr', input),
   listMessages: (projectId: string) => ipcRenderer.invoke('messages:list', projectId),
   addMessage: (message: Omit<LaneMessage, 'id' | 'createdAt'>) => ipcRenderer.invoke('messages:add', message),
+  runCommand: (input: RunCommandInput) => ipcRenderer.invoke('commands:run', input),
 };
 
 contextBridge.exposeInMainWorld('devCrew', api);

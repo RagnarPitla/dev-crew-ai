@@ -6,13 +6,15 @@ import { LaneService } from './services/laneService';
 import { MessageBusService } from './services/messageBusService';
 import { ProviderService } from './services/providerService';
 import { VisionService } from './services/visionService';
-import type { CreateLaneInput, CreatePullRequestInput, LaneMessage, Project } from '../shared/types';
+import { CommandRunner } from './services/commandRunner';
+import type { CreateLaneInput, CreatePullRequestInput, LaneMessage, Project, RunCommandInput } from '../shared/types';
 
 const projects = new Map<string, Project>();
 const gitService = new GitService();
 const ghService = new GhService();
 const providerService = new ProviderService();
 const visionService = new VisionService();
+const commandRunner = new CommandRunner();
 const messageBusService = new MessageBusService();
 const laneService = new LaneService({ gitService, ghService, providerService, messageBusService, projects });
 
@@ -67,6 +69,7 @@ export function registerIpcHandlers(): void {
   ipcMain.handle('messages:add', async (_event, message: Omit<LaneMessage, 'id' | 'createdAt'>) =>
     messageBusService.addMessage(message),
   );
+  ipcMain.handle('commands:run', async (_event, input: RunCommandInput) => commandRunner.run(input));
 }
 
 function requireProject(projectId: string): Project {

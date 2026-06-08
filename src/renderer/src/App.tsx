@@ -6,6 +6,7 @@ import { MessageBus } from './components/MessageBus';
 import { ProjectSidebar } from './components/ProjectSidebar';
 import { WelcomeScreen } from './components/onboarding/WelcomeScreen';
 import { ActionBoard } from './components/actions/ActionBoard';
+import { TerminalPaneGrid } from './components/terminal/TerminalPaneGrid';
 import { DEV_CREW_BRAND } from './shared/brand';
 
 const demoProviders: ProviderConfig[] = [
@@ -166,6 +167,7 @@ export function App() {
           </div>
           <button className="primary-button">Create lane</button>
         </header>
+        <TerminalPaneGrid project={selectedProject} />
         <LaneBoard lanes={lanes} selectedLaneId={selectedLane?.id} onSelectLane={setSelectedLaneId} />
         <ActionBoard action={demoAction} />
         <MessageBus projectId={selectedProject.id} lanes={lanes} />
