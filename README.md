@@ -96,6 +96,22 @@ GitHub is optional until the user wants issues and PRs.
 - Detect future file conflicts across lanes.
 - Create PRs and clean up worktrees when GitHub is connected.
 
+## Harness engineering example
+
+This repo also includes a lightweight team harness you can use in demos or adapt for your own projects:
+
+- [Harness overview](docs/harness/README.md)
+- [Harness map](docs/harness/harness-map.md)
+- [Grill loop](docs/harness/grill-loop.md)
+- [Demo script](docs/harness/demo-script.md)
+- [Flowart skill](docs/harness/flowart-skill.md)
+
+It includes shared `AGENTS.md` guidance, Claude skills, GitHub Copilot prompt files, a rubber-duck reviewer, and a small local loop script:
+
+```bash
+node scripts/harness-loop.mjs --print
+```
+
 ## Product positioning
 
 **Dev Crew AI** is the brand.

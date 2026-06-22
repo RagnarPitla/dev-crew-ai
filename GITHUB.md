@@ -60,6 +60,16 @@ gh copilot suggest -t shell "show git status"
 
 Dev Crew AI treats Copilot as a configurable command adapter because GitHub Copilot CLI availability can vary by account, extension, platform, and installation method.
 
+## GitHub Copilot harness files
+
+Dev Crew AI includes GitHub Copilot harness files:
+
+- `.github/copilot-instructions.md` for project-level Copilot behavior.
+- `.github/prompts/grill-me.prompt.md` to pressure-test requests.
+- `.github/prompts/grill-docs.prompt.md` to critique docs and specs.
+- `.github/prompts/rubber-duck.prompt.md` to challenge plans and diffs.
+- `.github/prompts/harness-retro.prompt.md` to convert repeated failures into harness improvements.
+
 ## OS-specific launch commands
 
 Dev Crew AI supports command planning for:
